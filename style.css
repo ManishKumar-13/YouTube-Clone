@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 15px;
+}
+
+main {
+    height: calc(100vh - 70px);
+    display: flex;
+    background-color: #f9f9f9;
+}
+
+
+/* Sidebar */ 
+.side-bar {
+    height: 100%;
+    width: 17%;
+    background-color: white;
+    overflow-y: hidden;
+} 
+
+/* Style the left section */
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.left #menu {
+    padding: 0 7px;
+    cursor: pointer;
+}
+
+/* Style the center section and its form */
+.search {
+    display: flex;
+}
+
+.search form {
+    display: flex;
+    height: 40px;
+}
+
+
+/* Style the input in the search form */
+.search input {
+    width: 600px;
+    padding:15px;
+    border: 1px solid #cdcbcb;
+    border-right: none;
+    border-radius: 50px 0px 0px 50px;
+    font-size: 17px;
+}
+  
+input:focus {
+    outline: none;
+    border: 1px solid rgb(0, 182, 254);
+}
+
+/* Style the search and mic icons/buttons */
+.search button {
+    height: 100%;
+    width: 60px;
+    border: 1px solid #cdcbcb;
+    border-radius: 0 50px 50px 0;
+  }
+   
+  .mic {
+    margin-top: 10px;
+  }
+
+
+   .material-icons {
+    color: rgb(100, 100, 100);
+    padding: 0 7px;
+    cursor: pointer;
+  }
