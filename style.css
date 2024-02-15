@@ -14,8 +14,17 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
-    padding: 15px;
+    height: 4rem;
+    padding: 1rem;
+    /* position: sticky;
+    top: 0;
+    background-color: #f9f9f9; */
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 1000; /* Ensure the header is above other content */
 }
 
 main {
@@ -26,17 +35,34 @@ main {
 
 /* Sidebar */
 .side-bar {
-    height: 100vh;
-    width: 20%;
+    /* height: 100vh; */
+    font-size: 0.88rem;
+    /* color: #646464; */
+    color: #494949;
+    height: calc(100vh - 4rem); /* Subtract header height from viewport height */
+    width: 16%;
     background-color: white;
-    overflow-y: hidden;
+    overflow-y: hidden;   /* Initially hide scrollbar  */
+  
+    /* Position the sidebar fixed on the left side of the viewport */
+    position: fixed;  /* Fix the sidebar */
+    top: 4rem;  /* Set top position below the header */
+    left: 0;
+    bottom: 0;
 }
 
+
  .side-bar:hover {
-    /* height: 100%; */
-    overflow-y: auto;
-    /* Show scrollbar on hover */
-} 
+    /* height: fit-content; */
+    /* scrollbar-width: 1px; */
+    overflow-y: auto;  /* Show scrollbar on hover */
+}
+
+/* 
+.side-bar::-webkit-scrollbar {
+    width: 10px; 
+}  */
+  
 
 /* Style the left section */
 .left {
@@ -45,7 +71,7 @@ main {
 }
 
 .left #menu {
-    padding: 0 7px;
+    padding: 0 0.5rem;
     cursor: pointer;
 }
 
@@ -56,7 +82,7 @@ main {
 
 .search form {
     display: flex;
-    height: 40px;
+    height: 2.5rem;
 }
 
 
@@ -67,7 +93,7 @@ main {
     border: 1px solid #cdcbcb;
     border-right: none;
     border-radius: 50px 0px 0px 50px;
-    font-size: 17px;
+    font-size: 1rem;
 }
 
 input:focus {
@@ -84,7 +110,14 @@ input:focus {
 }
 
 .mic {
-    margin-top: 10px;
+    margin-top: 0;
+    margin-left: 1rem;
+    background-color: #efeded;
+    border-radius: 2rem;
+}
+
+.mic > i {
+    padding-block: 0.5rem;
 }
 
 
@@ -99,36 +132,49 @@ nav {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 /* Style the nav link */
 .nav-link {
     display: flex;
     align-items: center;
-    padding: 12px 25px;
+    /* padding: 12px 25px; */
+    padding: 0.5rem;
+    margin-inline: 0.5rem;
 }
 
 .nav-link span {
     margin-left: 15px;
 }
 
+.nav-link img {
+    width: 21px; /* Set the width to your desired value */
+    height: 21px; /* Set the height to your desired value */
+    object-fit: contain ; /* Optional: Ensures the image covers the entire box */
+    border-radius: 8px;
+    margin-left: 0.6rem;
+    margin-right: 0.4rem;
+}
+
 .nav-link:hover {
-    background: #e5e5e5;
+    border-radius: 1rem;
+    background: #f2f1f1;
     cursor: pointer;
 }
 
 hr {
-    height: 1px;
-    background-color: #cdcbcb;
+    height: 0.9px;
+    background-color: #e9e6e6;   /*#cdcbcb*/
     border: none;
+    margin-block: 0.7rem;
 }
 
 .sign-in {
     display: flex;
     flex-direction: column;
-    padding: 16px 35px;
+    padding: 0.2rem 1.5rem;
 }
 
 .sign-in>a {
@@ -136,9 +182,12 @@ hr {
     border: 1px solid #cdcbcb;
     border-radius: 20px;
     width: fit-content;
-    padding: 6px;
+    padding: 0.3rem;
+    padding-right: 1rem;
     color: #429af8;
-    margin: 15px 0px;
+    margin-top: 0.5rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .sign-in>a:hover {
@@ -173,12 +222,16 @@ hr {
 
 /* Styling the content and videos */
 .content {
-    background-color: #f9f9f9;
+    background-color: #ffffff;  /* #f9f9f9; */
     width: 100%;
-    height: 100%;
-    padding: 15px 15px;
-    border-top: 1px solid #ddd;
+    height: calc(100vh - 1rem); /* Adjust height to fill remaining viewport */
+    padding: 5rem 2rem 0rem 17%; /*Adjust padding to accommodate the fixed sidebar and header */ 
+     /* padding: 15px 15px; */
+    border-top: 1px solid #ffffff;
     overflow-y: auto;
+    margin-top: 1rem; /* Add margin to push content below the fixed header */
+    /* border: 5px solid red; */
+
 }
 
 .videos {
@@ -186,11 +239,12 @@ hr {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .video {
-    width: 360px;
-    margin-bottom: 30px;
+    width: 24rem;
+    margin-bottom: 2rem;
 }
 
 .thumbnail {
